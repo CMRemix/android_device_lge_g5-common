@@ -312,9 +312,9 @@ on boot
     chmod 664 /sys/class/panel/img_tune/image_enhance_set
     chmod 664 /sys/class/panel/img_tune/cabc
 
-    # Vibrator adjustment
-    chown system system /sys/class/timed_output/vibrator/amp
-    chmod 664 /sys/class/timed_output/vibrator/amp
+    # Vibrator permissions
+    chown system system /sys/class/timed_output/vibrator/vmax_mv
+    chmod 644 /sys/class/timed_output/vibrator/vmax_mv
 
     # Fingerprints
     chown system input /sys/devices/virtual/input/lge_fingerprint/testmode
