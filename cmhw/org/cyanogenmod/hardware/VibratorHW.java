@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,31 +16,36 @@
 
 package org.cyanogenmod.hardware;
 
-import org.cyanogenmod.hardware.util.FileUtils;
+import org.cyanogenmod.internal.util.FileUtils;
 
 public class VibratorHW {
 
-    private static String AMP_PATH = "/sys/devices/virtual/timed_output/vibrator/amp";
+    private static String AMP_PATH = "/sys/class/timed_output/vibrator/vmax_mv";
 
     public static boolean isSupported() {
-        return true;
+        return FileUtils.isFileWritable(AMP_PATH);
     }
 
     public static int getMaxIntensity()  {
-        return 2204;
+        return 3596;
     }
+
     public static int getMinIntensity()  {
         return 116;
     }
+
     public static int getWarningThreshold()  {
-        return 2204;
+        return 3248;
     }
+
     public static int getCurIntensity()  {
         return Integer.parseInt(FileUtils.readOneLine(AMP_PATH));
     }
+
     public static int getDefaultIntensity()  {
-        return 2204;
+        return 2700;
     }
+
     public static boolean setIntensity(int intensity)  {
         return FileUtils.writeLine(AMP_PATH, String.valueOf(intensity));
     }
