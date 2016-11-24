@@ -138,6 +138,10 @@ persist.data.df.mux_count=8
 persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
+# Tethering
+sys.usb.rps_mask=10
+persist.sys.usb.config.extra=none
+
 # Sensors
 persist.debug.sensors.hal=e
 debug.qualcomm.sns.daemon=e
